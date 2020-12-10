@@ -17,6 +17,7 @@ with open("dateout.txt","rb") as file:
 		sir=sir[3:]
 		i=0
 		for caracter in sir:
+			#memorise the old hash and the complete path
 			if caracter==',':
 				known_hash=sir[i+1:]
 				sir=sir[:i]
@@ -24,9 +25,11 @@ with open("dateout.txt","rb") as file:
 			i=i+1
 				
 		md5_hash.update(repr(sir).encode('utf-8'))
+		#generate the new hash for the complete path
 		digest=md5_hash.hexdigest()
 		g.write(sir)
 		g.write(",")
+		#verify if the old hash is the same with the current hash
 		if known_hash==digest:
 			g.write("Same hash")
 		else:
