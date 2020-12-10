@@ -4,6 +4,7 @@ import os
 
 
 def director(cale_director):
+	#This function scans each directory found and print the path of each subdirectory and file in this directory and print the hash of each element.
 	for (root,dirs,files) in os.walk(cale_director,topdown=True):
 		for dire in dirs:
 			dname=os.path.join(root,dire)
@@ -41,7 +42,9 @@ with open("datein.txt","rb") as file:
 		sir=sir[3:]
 		
 		isdir=os.path.isdir(sir)
+		#Check if the path is a directory
 		if isdir==True:
+			#print the complete path of the directory and the hash and go to the director function
 			md5_hash.update(repr(sir).encode('utf-8'))
 			digest=md5_hash.hexdigest()
 			directory=str(sir)
@@ -51,6 +54,7 @@ with open("datein.txt","rb") as file:
 			g.write("\n")
 			director(directory)
 		else:
+			#print the complete path of the file and the hash
 			md5_hash.update(repr(sir).encode('utf-8'))
 			digest=md5_hash.hexdigest()
 			sir=str(linie)
