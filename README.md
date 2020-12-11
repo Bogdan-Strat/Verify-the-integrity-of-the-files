@@ -1,4 +1,4 @@
-# Verify-the-integrity-of-the-files
+#Anti rootkit(Verify-the-integrity-of-the-files)
 Project steps:
     1. Create a python script (Find_hash_of_every_file.py) in which:
     • creating the directory function (scrolling in the directory, sub-directory, etc., calculating / generating the hash for each of them)
